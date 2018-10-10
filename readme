@@ -1,1 +1,6 @@
-init
+technical chanllenges
+1) in proper help on most websites like for example people calling ObjectManager instead of overriding model, blocks etc
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Catalog\Model\Product')->load('YOUR PRODUCT ID');
+echo $product->getMetalPads();
