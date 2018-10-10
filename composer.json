@@ -1,0 +1,17 @@
+{
+  "name": "rosenborg/module-product-membership",
+  "description": "Only allow products to be bought if they are logged in.",
+  "require": {
+    "php": "~7.0.13|~7.1.0"
+  },
+  "type": "magento2-module",
+  "version": "100.0.1",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Rosenborg\\ProductMembership\\": ""
+    }
+  }
+}
