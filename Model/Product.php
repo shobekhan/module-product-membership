@@ -8,14 +8,18 @@ namespace Rosenborg\ProductMembership\Model;
  */
 class Product extends \Magento\Catalog\Model\Product
 {
+
     /**
-     * Get product name
-     *
-     * @return string
-     * @codeCoverageIgnoreStart
+     * @return bool
      */
-    public function getName()
+    public function getIsWithMembership()
     {
-        return $this->_getData(self::NAME) . ' saas';
+        if ('1' === $this->_getData('with_membership')) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+
 }

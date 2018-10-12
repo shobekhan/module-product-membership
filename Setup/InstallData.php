@@ -38,43 +38,43 @@ class InstallData implements InstallDataInterface
 
         $setup->startSetup();
 
-        if (version_compare($context->getVersion(), '1.0.3', '<')) {
+        if (version_compare($context->getVersion(), '2.0.0', '<')) {
+            
+            /** @var EavSetup $eavSetup */
+            $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+
+            $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'with_membership');
+
+            /**
+             * Add attributes to the eav/attribute
+             */
+            $eavSetup->addAttribute(
+                \Magento\Catalog\Model\Product::ENTITY,
+                'with_membership',
+                [
+                    'type' => 'int',
+                    'backend' => '',
+                    'frontend' => '',
+                    'label' => 'Only purchasable with membership',
+                    'input' => 'boolean',
+                    'class' => '',
+                    'source' => '',
+                    'global' => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_GLOBAL,
+                    'visible' => true,
+                    'required' => false,
+                    'user_defined' => false,
+                    'default' => 0,
+                    'searchable' => false,
+                    'filterable' => false,
+                    'comparable' => false,
+                    'visible_on_front' => false,
+                    'used_in_product_listing' => true,
+                    'unique' => false,
+                    'apply_to' => ''
+                ]
+            );
 
         }
-
-        /** @var EavSetup $eavSetup */
-        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
-
-        $eavSetup->removeAttribute(\Magento\Catalog\Model\Product::ENTITY, 'with_membership');
-
-        /**
-         * Add attributes to the eav/attribute
-         */
-        $eavSetup->addAttribute(
-            \Magento\Catalog\Model\Product::ENTITY,
-            'with_membership',
-            [
-                'type' => 'int',
-                'backend' => '',
-                'frontend' => '',
-                'label' => 'Only purchasable with membership',
-                'input' => 'boolean',
-                'class' => '',
-                'source' => '',
-                'global' => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_GLOBAL,
-                'visible' => true,
-                'required' => false,
-                'user_defined' => false,
-                'default' => 0,
-                'searchable' => false,
-                'filterable' => false,
-                'comparable' => false,
-                'visible_on_front' => false,
-                'used_in_product_listing' => true,
-                'unique' => false,
-                'apply_to' => ''
-            ]
-        );
 
         $setup->endSetup();
 

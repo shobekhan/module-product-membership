@@ -7,4 +7,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
     <preference for="Magento\Catalog\Model\Product" type="Rosenborg\ProductMembership\Model\Product" />
+    <preference for="Magento\Catalog\Block\Product\View" type="Rosenborg\ProductMembership\Block\Product\View" />
+    <preference for="Magento\Catalog\Block\Product\ListProduct" type="Rosenborg\ProductMembership\Block\Product\ListProduct" />
 </config>
