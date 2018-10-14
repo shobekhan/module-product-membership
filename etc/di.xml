@@ -10,4 +10,5 @@
     <preference for="Magento\Catalog\Block\Product\View" type="Rosenborg\ProductMembership\Block\Product\View" />
     <preference for="Magento\Catalog\Block\Product\ListProduct" type="Rosenborg\ProductMembership\Block\Product\ListProduct" />
     <preference for="Magento\Checkout\Model\Cart" type="Rosenborg\ProductMembership\Model\Cart" />
+    <preference for="Magento\OfflineShipping\Model\Carrier\Flatrate" type="Rosenborg\ProductMembership\Model\Carrier\Flatrate" />
 </config>
