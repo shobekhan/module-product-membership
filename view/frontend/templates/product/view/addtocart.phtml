@@ -11,7 +11,7 @@
 <?php $_product = $block->getProduct(); ?>
 
 
-<?php $buttonTitle = __('Add to Cart from extension'); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
 <?php if ($_product->isSaleable()): ?>
 <div class="box-tocart">
     <div class="fieldset">
@@ -37,6 +37,13 @@
                     id="product-addtocart-button" <?=(false === $block->canUserBuyProduct() ? 'disabled' : '')?>>
                 <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
             </button>
+
+            <?php if ($block->getProduct()->getIsWithMembership()): ?>
+                <div class="row">
+                    <img src="<?php echo $this->getViewFileUrl('Rosenborg_ProductMembership::images/special.png'); ?>" />
+                </div>
+            <?php endif; ?>
+
             <?= $block->getChildHtml('', true) ?>
         </div>
     </div>

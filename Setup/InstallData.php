@@ -77,7 +77,5 @@ class InstallData implements InstallDataInterface
         }
 
         $setup->endSetup();
-
-        echo PHP_EOL . 'Attribute added' . PHP_EOL;
     }
 }
